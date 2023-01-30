@@ -44,7 +44,7 @@ int isDuplicate(char product[], int array_new_tovars_length, char duplicateProdu
 
 int main(void)
 {
-    int amount_new_tovars = 0, queue = 0;
+    int amount_new_tovars = 0, queue = 0, isAvailable = 0;
     struct tovar storage[] = {{1, 25}, {2, 30}, {3, 15}, {4, 10}};
     struct new_tovar array_new_tovars[max];
     struct result_array result_arr[max];
@@ -64,12 +64,23 @@ int main(void)
         printf("\nEnter name of new tovar ");
         scanf("%s", &array_new_tovars[i].name);
         printf("\nEnter code of new tovar ");
-        scanf("%d", &array_new_tovars[i].cod);
+        while (isAvailable != 1)
+        {
+            scanf("%d", &array_new_tovars[i].cod);
+            for (int b = 0; b < n; b++)
+            {
+                if (array_new_tovars[i].cod == storage[b].cod)
+                {
+                    isAvailable = 1;
+                }
+            }
+            printf("No such code. Enter another: ");
+        }
+        isAvailable = 0;
         printf("\nEnter value of new tovar ");
         scanf("%d", &array_new_tovars[i].value);
         printf("\nEnter date of add new tovar ");
         scanf("%f", &array_new_tovars[i].date);
-        fflush(stdin);
     }
     printf("===============================\n");
 
