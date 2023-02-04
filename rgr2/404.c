@@ -94,7 +94,7 @@ int main(void)
         {
             if (arrayOfRectangles[maxidx].topLeft.x <= arrayOfRectangles[i].topLeft.x && arrayOfRectangles[maxidx].topLeft.y <= arrayOfRectangles[i].topLeft.y && arrayOfRectangles[maxidx].botRight.x >= arrayOfRectangles[i].botRight.x && arrayOfRectangles[maxidx].botRight.y >= arrayOfRectangles[i].botRight.y)
             {
-                printf("\n\tRectangle %i is inside rectangle %i\n", i, maxidx + 1);
+                printf("\n\tRectangle %i is inside rectangle %i\n", i + 1, maxidx + 1);
                 includeSomeRectangle = 1;
             }
         }
